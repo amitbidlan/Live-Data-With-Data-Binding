@@ -1,10 +1,16 @@
 package com.example.twowaydatabinding
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel:ViewModel() {
-     var count = MutableLiveData<Int>()
+     private var count = MutableLiveData<Int>()
+    val countData : LiveData<Int>
+        get() {
+           return count
+        }
+
     init {
         count.value = 0
     }
